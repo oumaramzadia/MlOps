@@ -60,7 +60,7 @@ stages:
     displayName: "Get Pipeline ID for execution"
     container: mlops
     timeoutInMinutes: 0
-    steps:
+    steps:################################
     - task: AzureCLI@1
       inputs:
         azureSubscription: '$(WORKSPACE_SVC_CONNECTION)'
@@ -83,7 +83,7 @@ stages:
     pool: server
     variables:
       AMLPIPELINE_ID: $[ dependencies.Get_Pipeline_ID.outputs['getpipelineid.AMLPIPELINEID'] ]
-    steps:
+    steps:################################
     - task: ms-air-aiagility.vss-services-azureml.azureml-restApi-task.MLPublishedPipelineRestAPITask@0
       displayName: 'Invoke ML pipeline'
       inputs:
@@ -98,5 +98,5 @@ stages:
     displayName: "Publish artifact if new model was registered"
     container: mlops
     timeoutInMinutes: 0
-    steps:
+    steps:################################
     - template: diabetes_regression-publish-model-artifact-template.yml
