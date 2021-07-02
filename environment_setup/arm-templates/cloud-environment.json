@@ -105,8 +105,7 @@
           "family": "A"
         },
         "accessPolicies": [
-        ],
-        "enableSoftDelete": false
+        ]
       }
     },
     {
