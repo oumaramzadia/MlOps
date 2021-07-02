@@ -106,8 +106,7 @@
         },
         "accessPolicies": [
         ],
-        "enableSoftDelete": true,
-        "enablePurgeProtection": false
+        "enableSoftDelete": false
       }
     },
     {
