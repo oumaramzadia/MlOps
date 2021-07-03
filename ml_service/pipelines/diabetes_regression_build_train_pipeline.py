@@ -166,7 +166,9 @@ def main():
 
     train_pipeline = Pipeline(workspace=aml_workspace, steps=steps)
     train_pipeline._set_experiment_name
+ # # make sure stuff works
     train_pipeline.validate()
+ # your pipeline will show up on ml.azure.com
     published_pipeline = train_pipeline.publish(
         name=e.pipeline_name,
         description="Model training/retraining pipeline",
