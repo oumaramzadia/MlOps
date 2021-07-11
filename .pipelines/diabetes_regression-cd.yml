@@ -29,6 +29,7 @@ variables:
 - group: devopsforai-aml-vg
 
 stages:
+#######################################################################################################
 - stage: 'Deploy_ACI'
   displayName: 'Deploy to ACI'
   condition: variables['ACI_DEPLOYMENT_NAME']
@@ -75,6 +76,7 @@ stages:
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           python -m ml_service.util.smoke_test_scoring_service --type ACI --service "$(ACI_DEPLOYMENT_NAME)"
 
+#######################################################################################################
 - stage: 'Deploy_AKS'
   displayName: 'Deploy to AKS'
   dependsOn: Deploy_ACI
@@ -122,6 +124,7 @@ stages:
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           python -m ml_service.util.smoke_test_scoring_service --type AKS --service "$(AKS_DEPLOYMENT_NAME)"
 
+#######################################################################################################
 - stage: 'Deploy_Webapp'
   displayName: 'Deploy to Webapp'
   condition: variables['WEBAPP_DEPLOYMENT_NAME']
